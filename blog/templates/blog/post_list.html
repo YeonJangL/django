@@ -81,9 +81,12 @@
 
     <div class="container my-3">
         <div class="row">
-            <div class="col-md-8 col-lg-8">
-                <h1>{{ post.title }}</h1>
+            <div class="col-md-8 col-lg-9" id="main-area">
+                <h1>Blog</h1>
                 <h5 class="text-muted">{{ post.hook_text }}</h5>
+
+            {% if post_list.exists %}
+
                 {% for p in post_list %}
                 <!-- Blog Post -->
                 <div class="card mb-4">
@@ -106,7 +109,9 @@
                     </div>
                 </div>
                 {% endfor %}
-
+            {% else %}
+                <h3>아직 게시물이 없습니다.</h3>
+            {% endif %}
                 <!-- Blog Post -->
                 <div class="card mb-4">
                     <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
