@@ -81,9 +81,9 @@
 
     <div class="container my-3">
         <div class="row">
-            <div class="col-md-8 col-lg-9">
-                <h1>Blog</h1>
-
+            <div class="col-md-8 col-lg-8">
+                <h1>{{ post.title }}</h1>
+                <h5 class="text-muted">{{ post.hook_text }}</h5>
                 {% for p in post_list %}
                 <!-- Blog Post -->
                 <div class="card mb-4">
@@ -94,7 +94,10 @@
                     {% endif %}
                     <div class="card-body">
                         <h2 class="card-title">{{ p.title }}</h2>
-                        <p class="card-text">{{ p.content }}</p>
+                        {% if p.hook_text %}
+                            <h5 class="text-muted">{{ p.hook_text }}</h5>
+                        {% endif %}
+                        <p class="card-text">{{ p.content | truncatewords:45 }}</p>
                         <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
