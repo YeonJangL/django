@@ -81,6 +81,11 @@
 <div class="container my-3">
     <div class="row">
         <div class="col-md-8 col-lg-9" id="main-area">
+
+        {% extends 'blog/base.html' %}
+
+        {% block main_area %}
+
             <h1>Blog</h1>
             {% if post_list.exists %}
 
@@ -121,6 +126,7 @@
                     <a class="page-link" href="#">Newer &rarr;</a>
                 </li>
             </ul>
+        {% endblock %}
 
         </div>
 
